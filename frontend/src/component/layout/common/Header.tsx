@@ -4,39 +4,8 @@ import { useAtom } from "jotai";
 import { useUpdateAtom } from "jotai/utils";
 
 import { removeToken } from "@util/comm-util";
+import { ARR_THEME } from "@constant";
 import { themeStore, sidebarStore } from "@store";
-
-const ARR_THEME = [
-  "light",
-  "dark",
-  "cupcake",
-  "bumblebee",
-  "emerald",
-  "corporate",
-  "synthwave",
-  "retro",
-  "cyberpunk",
-  "valentine",
-  "halloween",
-  "garden",
-  "forest",
-  "aqua",
-  "lofi",
-  "pastel",
-  "fantasy",
-  "wireframe",
-  "black",
-  "luxury",
-  "dracula",
-  "cmyk",
-  "autumn",
-  "business",
-  "acid",
-  "lemonade",
-  "night",
-  "coffee",
-  "winter"
-];
 
 function Header() {
   const navigate = useNavigate();
