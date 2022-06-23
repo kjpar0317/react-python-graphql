@@ -4,7 +4,7 @@ import { useAtom } from "jotai";
 import { useUpdateAtom } from "jotai/utils";
 
 import { removeToken } from "@util/comm-util";
-import { themeStore, sidebarStore } from "@store/index";
+import { themeStore, sidebarStore } from "@store";
 
 const ARR_THEME = [
   "light",

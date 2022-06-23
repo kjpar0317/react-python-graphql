@@ -2,8 +2,8 @@ import { useLocation, Navigate, RouteProps } from "react-router-dom";
 import { useAtomValue } from "jotai";
 
 import { fetchToken } from "@util/comm-util";
-import { themeStore } from "@store/index";
-import { Header, Sidebar, Footer } from "@component/layout/common/index";
+import { themeStore } from "@store";
+import { Header, Sidebar, Footer } from "@component/layout/common";
 
 export interface DefaultThemeProps extends RouteProps {}
 
