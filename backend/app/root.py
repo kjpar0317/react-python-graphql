@@ -72,8 +72,7 @@ class Query:
     # async def login(self, email: str, password: str):
     #     return "hello"
 
-    @strawberry.field
-    # @strawberry.field(permission_classes=[IsAuthenticated])
+    @strawberry.field(permission_classes=[IsAuthenticated])
     async def codes(self, page: Optional[int] = 1, page_size: Optional[int] = 100) -> list[CodeM]:
         async with models.get_session() as s:
             sql = select(models.CodeM).order_by(
