@@ -16,7 +16,6 @@ export default function LoginPage() {
 
   async function handleDoSubmit(val: any) {
     mutate({ variables: { id: val.id, password: val.password } }).then(res => {
-      console.log(res.data.login);
       if (res.data && res.data.login) {
         const { userId, token } = res.data.login;
 
