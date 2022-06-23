@@ -80,7 +80,7 @@ class Query:
             codes = (await s.execute(sql)).scalars().all()
             return [CodeM.marshal(code) for code in codes]
 
-    @strawberry.field
+    @strawberry.field(permission_classes=[IsAuthenticated])
     async def code_problems(self, page: Optional[int] = 1, page_size: Optional[int] = 100) -> list[CodeProblem]:
         async with models.get_session() as s:
             sql = select(models.CodeProblem).order_by(
