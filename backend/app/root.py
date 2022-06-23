@@ -92,7 +92,7 @@ class Query:
 
 @strawberry.type
 class Mutation:
-    @ strawberry.mutation
+    @strawberry.mutation
     async def login(self, id: str, password: str) -> AuthData:
         async with models.get_session() as s:
             info = None
@@ -110,7 +110,7 @@ class Mutation:
                 # return NotExistUser()
         return info
 
-    @strawberry.mutation
+    @strawberry.mutation(permission_classes=[IsAuthenticated])
     async def add_code(self, C_ID: str, C_PARENT_ID: Optional[str], C_NAME: Optional[str], C_ENG_NAME: Optional[str], C_DESCRIPTION: Optional[str]) -> CodeM:
         async with models.get_session() as s:
             code = None
@@ -128,7 +128,7 @@ class Mutation:
             await s.commit()
         return CodeM.marshal(insert_code)
 
-    @strawberry.mutation
+    @strawberry.mutation(permission_classes=[IsAuthenticated])
     async def add_code_problem(self, CP_CATEGORY_CD: str, CP_TITLE: str, CP_LEVEL_CD: str, CP_CONTENT: Optional[str], CP_TAG: Optional[str]) -> CodeProblem:
         async with models.get_session() as s:
             code_problem = models.CodeProblem(
